@@ -80,12 +80,12 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private boolean mHideKeyBoardOnDismiss = true;
     private int contentTextSize = 0;
 
-    public static final int NORMAL_TYPE = 0;
-    public static final int ERROR_TYPE = 1;
-    public static final int SUCCESS_TYPE = 2;
-    public static final int WARNING_TYPE = 3;
-    public static final int CUSTOM_IMAGE_TYPE = 4;
-    public static final int PROGRESS_TYPE = 5;
+    public static final int NORMAL = 0;
+    public static final int ERROR = 1;
+    public static final int SUCCESS = 2;
+    public static final int WARNING = 3;
+    public static final int CUSTOM_IMAGE = 4;
+    public static final int PROGRESS = 5;
 
 
     public static boolean DARK_STYLE = false;
@@ -108,7 +108,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     }
 
     public StylishAlertDialog(Context context) {
-        this(context, NORMAL_TYPE);
+        this(context, NORMAL);
     }
 
     public StylishAlertDialog(Context context, int alertType) {
@@ -264,10 +264,10 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     }
 
     private void playAnimation() {
-        if (mAlertType == ERROR_TYPE) {
+        if (mAlertType == ERROR) {
             mErrorFrame.startAnimation(mErrorInAnim);
             mErrorX.startAnimation(mErrorXInAnim);
-        } else if (mAlertType == SUCCESS_TYPE) {
+        } else if (mAlertType == SUCCESS) {
             mSuccessTick.startTickAnim();
             mSuccessRightMask.startAnimation(mSuccessBowAnim);
         }
@@ -283,23 +283,23 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
             }
             mConfirmButton.setVisibility(mHideConfirmButton ? View.GONE : View.VISIBLE);
             switch (mAlertType) {
-                case ERROR_TYPE:
+                case ERROR:
                     mErrorFrame.setVisibility(View.VISIBLE);
                     break;
-                case SUCCESS_TYPE:
+                case SUCCESS:
                     mSuccessFrame.setVisibility(View.VISIBLE);
                     // initial rotate layout of success mask
                     mSuccessLeftMask.startAnimation(mSuccessLayoutAnimSet.getAnimations().get(0));
                     mSuccessRightMask.startAnimation(mSuccessLayoutAnimSet.getAnimations().get(1));
                     break;
-                case WARNING_TYPE:
+                case WARNING:
 //                    mConfirmButton.setBackgroundResource(R.drawable.red_button_background);
                     mWarningFrame.setVisibility(View.VISIBLE);
                     break;
-                case CUSTOM_IMAGE_TYPE:
+                case CUSTOM_IMAGE:
                     setCustomImage(mCustomImgDrawable);
                     break;
-                case PROGRESS_TYPE:
+                case PROGRESS:
                     mProgressFrame.setVisibility(View.VISIBLE);
                     mConfirmButton.setVisibility(View.GONE);
 //                    mButtonsContainer.setVisibility(View.GONE);

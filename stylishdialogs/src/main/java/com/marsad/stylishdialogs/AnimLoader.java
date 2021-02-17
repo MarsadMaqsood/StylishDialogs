@@ -52,7 +52,6 @@ public class AnimLoader {
 
         Animation anim = null;
 
-        // Make sure we are on a start tag.
         int type;
         int depth = parser.getDepth();
 

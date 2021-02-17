@@ -14,7 +14,9 @@ Stylish Alert Dialogs for Android.
 - Ability to set text size
 - Ability to set color of buttons
 
-Some screenshots of the new features:
+## Upcomming Dialog Designs
+- Text Bouncing Dialog
+
 
 **Maven**
 
@@ -57,29 +59,29 @@ Show simple material progress
 
 
 You can customize progress bar dynamically with the materialish-progress methods via **StylishAlertDialog.getProgressHelper()**:
-- resetCount()
-- isSpinning()
-- spin()
-- stopSpinning()
-- getProgress()
-- setProgress(float progress)
-- setInstantProgress(float progress)
-- getCircleRadius()
-- setCircleRadius(int circleRadius)
-- getBarWidth()
-- setBarWidth(int barWidth)
-- getBarColor()
-- setBarColor(int barColor)
-- getRimWidth()
-- setRimWidth(int rimWidth)
-- getRimColor()
-- setRimColor(int rimColor)
-- getSpinSpeed()
-- setSpinSpeed(float spinSpeed)
+	resetCount()
+	isSpinning()
+	spin()
+	stopSpinning()
+	getProgress()
+	setProgress(float progress)
+	setInstantProgress(float progress)
+	getCircleRadius()
+	setCircleRadius(int circleRadius)
+	getBarWidth()
+	setBarWidth(int barWidth)
+	getBarColor()
+	setBarColor(int barColor)
+	getRimWidth()
+	setRimWidth(int rimWidth)
+	getRimColor()
+	setRimColor(int rimColor)
+	getSpinSpeed()
+	setSpinSpeed(float spinSpeed)
 
 thanks to the project [materialish-progress](https://github.com/pnikosis/materialish-progress)
 
-more usages about progress, please see the sample.
+Code Samples
 
 Simple basic message：
 
@@ -96,14 +98,14 @@ Title with a text under：
 
 Error message：
 
-    new StylishAlertDialog(this, StylishAlertDialog.ERROR_TYPE)
+    new StylishAlertDialog(this, StylishAlertDialog.ERROR)
         .setTitleText("Oops...")
         .setContentText("Something went wrong!")
         .show();
 
 Warning message：
 
-    new StylishAlertDialog(this, StylishAlertDialog.WARNING_TYPE)
+    new StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
         .setContentText("Won't be able to recover this file!")
         .setConfirmText("Yes,delete it!")
@@ -111,14 +113,14 @@ Warning message：
 
 Success message：
 
-    new StylishAlertDialog(this, StylishAlertDialog.SUCCESS_TYPE)
+    new StylishAlertDialog(this, StylishAlertDialog.SUCCESS)
         .setTitleText("Good job!")
         .setContentText("You clicked the button!")
         .show();
 
 Message with a custom icon：
 
-    new StylishAlertDialog(this, StylishAlertDialog.CUSTOM_IMAGE_TYPE)
+    new StylishAlertDialog(this, StylishAlertDialog.CUSTOM_IMAGE)
         .setTitleText("Stylish!")
         .setContentText("Here's a custom image.")
         .setCustomImage(R.drawable.custom_img)
@@ -127,7 +129,7 @@ Message with a custom icon：
 Message with a custom view：
 
     final EditText editText = new EditText(this);
-    new StylishAlertDialog(this, StylishAlertDialog.NORMAL_TYPE)
+    new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
             .setTitleText("Custom view")
             .setConfirmText("Ok")
             .setCustomView(editText)
@@ -136,7 +138,7 @@ Message with a custom view：
 
 Different ways to bind the listener to button：
 
-    new StylishAlertDialog(this, StylishAlertDialog.WARNING_TYPE)
+    new StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
         .setContentText("Won't be able to recover this file!")
         .setConfirmText("Yes,delete it!")
@@ -157,7 +159,7 @@ Different ways to bind the listener to button：
 
 Disable button
 
-    final StylishAlertDialog disabledBtnDialog = new StylishAlertDialog(this, StylishAlertDialog.NORMAL_TYPE)
+    final StylishAlertDialog disabledBtnDialog = new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
             .setTitleText("Title")
             .setContentText("Disabled button dialog")
             .setConfirmText("Confirm")
@@ -174,7 +176,7 @@ Disable button
 
 **Change** the dialog style upon confirming：
 
-    new StylishAlertDialog(this, StylishAlertDialog.WARNING_TYPE)
+    new StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
         .setContentText("Won't be able to recover this file!")
         .setConfirmText("Yes, delete it!")
@@ -186,7 +188,7 @@ Disable button
                     .setContentText("Your imaginary file has been deleted!")
                     .setConfirmText("OK")
                     .setConfirmClickListener(null)
-                    .changeAlertType(StylishAlertDialog.SUCCESS_TYPE);
+                    .changeAlertType(StylishAlertDialog.SUCCESS);
             }
         })
         .show();
