@@ -73,9 +73,9 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private Integer mCancelButtonTextColor;
     private PGHelper mProgressHelper;
     private FrameLayout mWarningFrame;
-    private OnSweetClickListener mCancelClickListener;
-    private OnSweetClickListener mConfirmClickListener;
-    private OnSweetClickListener mNeutralClickListener;
+    private OnStylishClickListener mCancelClickListener;
+    private OnStylishClickListener mConfirmClickListener;
+    private OnStylishClickListener mNeutralClickListener;
     private boolean mCloseFromCancel;
     private boolean mHideKeyBoardOnDismiss = true;
     private int contentTextSize = 0;
@@ -103,7 +103,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public interface OnSweetClickListener {
+    public interface OnStylishClickListener {
         void onClick(StylishAlertDialog StylishAlertDialog);
     }
 
@@ -532,12 +532,12 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return mCancelButtonTextColor;
     }
 
-    public StylishAlertDialog setCancelClickListener(OnSweetClickListener listener) {
+    public StylishAlertDialog setCancelClickListener(OnStylishClickListener listener) {
         mCancelClickListener = listener;
         return this;
     }
 
-    public StylishAlertDialog setConfirmClickListener(OnSweetClickListener listener) {
+    public StylishAlertDialog setConfirmClickListener(OnStylishClickListener listener) {
         mConfirmClickListener = listener;
         return this;
     }
@@ -551,7 +551,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public StylishAlertDialog setNeutralClickListener(OnSweetClickListener listener) {
+    public StylishAlertDialog setNeutralClickListener(OnStylishClickListener listener) {
         mNeutralClickListener = listener;
         return this;
     }
@@ -578,38 +578,38 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         }
     }
 
-    public StylishAlertDialog setConfirmButton(String text, OnSweetClickListener listener) {
+    public StylishAlertDialog setConfirmButton(String text, OnStylishClickListener listener) {
         this.setConfirmText(text);
         this.setConfirmClickListener(listener);
         return this;
     }
 
-    public StylishAlertDialog setConfirmButton(int resId, OnSweetClickListener listener) {
+    public StylishAlertDialog setConfirmButton(int resId, OnStylishClickListener listener) {
         String text = getContext().getResources().getString(resId);
         setConfirmButton(text, listener);
         return this;
     }
 
 
-    public StylishAlertDialog setCancelButton(String text, OnSweetClickListener listener) {
+    public StylishAlertDialog setCancelButton(String text, OnStylishClickListener listener) {
         this.setCancelText(text);
         this.setCancelClickListener(listener);
         return this;
     }
 
-    public StylishAlertDialog setCancelButton(int resId, OnSweetClickListener listener) {
+    public StylishAlertDialog setCancelButton(int resId, OnStylishClickListener listener) {
         String text = getContext().getResources().getString(resId);
         setCancelButton(text, listener);
         return this;
     }
 
-    public StylishAlertDialog setNeutralButton(String text, OnSweetClickListener listener) {
+    public StylishAlertDialog setNeutralButton(String text, OnStylishClickListener listener) {
         this.setNeutralText(text);
         this.setNeutralClickListener(listener);
         return this;
     }
 
-    public StylishAlertDialog setNeutralButton(int resId, OnSweetClickListener listener) {
+    public StylishAlertDialog setNeutralButton(int resId, OnStylishClickListener listener) {
         String text = getContext().getResources().getString(resId);
         setNeutralButton(text, listener);
         return this;
