@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) [![GitHub version](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version.svg)](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version)
+
 Stylish Alert Dialog
 ===================
 Stylish Alert Dialogs for Android.
@@ -59,6 +61,7 @@ Show simple material progress
 
 
 You can customize progress bar dynamically with the materialish-progress methods via **StylishAlertDialog.getProgressHelper()**:
+
 	resetCount()
 	isSpinning()
 	spin()
@@ -216,4 +219,3 @@ Disable button
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
-
