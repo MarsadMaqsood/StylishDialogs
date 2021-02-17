@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StylishAlertDialog</string>
+    <string name="dialog_default_title">Here is the message!</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="loading">Loading…</string>
+
+</resources>
