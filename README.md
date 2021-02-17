@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) [![GitHub version](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version.svg)](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version)
+[![GitHub version](https://jitpack.io/v/MarsadMaqsood/StylishDialogs.svg)](https://jitpack.io/#MarsadMaqsood/StylishDialogs)
 
 Stylish Alert Dialog
 ===================
 Stylish Alert Dialogs for Android.
 
-##Features
+### Features
 - Ability to set custom view
 - More convenient interface to bind listeners (like in AlertDialog)
 - Third neutral button with own listener, colors, methods and etc.
@@ -16,7 +16,7 @@ Stylish Alert Dialogs for Android.
 - Ability to set text size
 - Ability to set color of buttons
 
-## Upcomming Dialog Designs
+### Upcomming Dialog Designs
 - Text Bouncing Dialog
 
 
@@ -60,8 +60,9 @@ Show simple material progress
 
 
 
-You can customize progress bar dynamically with the materialish-progress methods via **StylishAlertDialog.getProgressHelper()**:
-
+You can customize progress bar dynamically with the materialish-progress methods via
+    ```StylishAlertDialog.getProgressHelper();```
+    
 	resetCount()
 	isSpinning()
 	spin()
