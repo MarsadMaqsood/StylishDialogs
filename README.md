@@ -19,6 +19,8 @@ Stylish Alert Dialogs for Android.
 ### Upcoming Dialog Designs
 - Text Bouncing Dialog
 
+### Screenshot
+![image](https://github.com/MarsadMaqsood/StylishDialogs/blob/master/assets/sample_1.gif)
 
 **Maven**
 
@@ -45,7 +47,7 @@ Stylish Alert Dialogs for Android.
 	}
 
 	dependencies {
-	        implementation 'com.github.MarsadMaqsood:StylishDialogs:0.1.0'
+	        implementation 'com.github.MarsadMaqsood:StylishDialogs:0.1.1'
 	}
 
 ## How to Usage
