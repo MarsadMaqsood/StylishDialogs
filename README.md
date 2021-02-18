@@ -54,7 +54,7 @@ Stylish Alert Dialogs for Android.
 
 Show simple material progress
 
-    StylishAlertDialog pDialog = new StylishAlertDialog(this, StylishAlertDialog.PROGRESS_TYPE);
+    StylishAlertDialog pDialog = new StylishAlertDialog(this, StylishAlertDialog.PROGRESS);
     pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
     pDialog.setTitleText("Loading");
     pDialog.setCancelable(false);
