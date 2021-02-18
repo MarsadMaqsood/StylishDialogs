@@ -34,7 +34,7 @@ Stylish Alert Dialogs for Android.
 	<dependency>
 	    <groupId>com.github.MarsadMaqsood</groupId>
 	    <artifactId>StylishDialogs</artifactId>
-	    <version>Tag</version>
+	    <version>0.1.1</version>
 	</dependency>
 
 **Gradle**
