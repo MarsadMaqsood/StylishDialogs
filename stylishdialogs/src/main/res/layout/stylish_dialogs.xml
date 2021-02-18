@@ -124,10 +124,11 @@
 
             <com.pnikosis.materialishprogress.ProgressWheel
                 android:id="@+id/progressWheel"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="82dp"
+                android:layout_height="82dp"
                 android:layout_gravity="center"
                 wheel:matProg_progressIndeterminate="true" />
+
         </FrameLayout>
 
         <TextView
@@ -143,7 +144,6 @@
             android:visibility="gone"
             tools:text="Title"
             tools:visibility="visible" />
-
 
         <TextView
             android:id="@+id/content_text"
@@ -209,6 +209,6 @@
                 android:visibility="gone" />
         </LinearLayout>
 
-
     </LinearLayout>
+
 </FrameLayout>

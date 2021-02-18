@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Xml;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -62,7 +63,9 @@ public class AnimLoader {
                 continue;
             }
 
-            String name = parser.getName();
+            String name1 = parser.getName();
+
+            String name = name1;
 
             switch (name) {
                 case "set":
@@ -82,6 +85,7 @@ public class AnimLoader {
                     anim = new TranslateAnimation(c, attrs);
                     break;
                 default:
+                    Log.d("ANIM_NAME", name);
                     try {
                         anim = (Animation) Class.forName(name).getConstructor(Context.class, AttributeSet.class).newInstance(c, attrs);
                     } catch (Exception te) {

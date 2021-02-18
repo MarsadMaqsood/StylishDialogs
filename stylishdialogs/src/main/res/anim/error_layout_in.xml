@@ -9,7 +9,7 @@
         android:fromAlpha="0"
         android:toAlpha="1" />
 
-    <stylish:cn.pedant.StylishAlert.Rotate3dAnimation
+    <stylish:com.marsad.stylishdialogs.RotatingAnimation
         android:duration="400"
         stylish:customPivotX="50%"
         stylish:customPivotY="50%"

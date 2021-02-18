@@ -2,7 +2,7 @@
 <resources>
     <color name="float_transparent">#00000000</color>
     <!--<color name="custom_float_bg">#96333333</color>-->
-    <color name="custom_float_bg">#F27474</color>
+    <color name="custom_float_bg">#F36868</color>
 
     <color name="stylish_dialog_bg_color">#FFFFFF</color>
     <!--<color name="stylish_dialog_bg_color_dark">#f0283135</color>-->
@@ -13,9 +13,9 @@
     <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
     <color name="blue_btn_bg_color">#AEDEF4</color>
     <color name="blue_btn_bg_pressed_color">#96BFD2</color>
-    <color name="red_btn_bg_color">#DD6B55</color>
-    <color name="red_btn_bg_pressed_color">#CD5B55</color>
-    <color name="error_stroke_color">#F27474</color>
+    <color name="red_btn_bg_color">#E86A52</color>
+    <color name="red_btn_bg_pressed_color">#C5534D</color>
+    <color name="error_stroke_color">#F36868</color>
     <color name="success_stroke_color">#A5DC86</color>
     <color name="trans_success_stroke_color">#33A5DC86</color>
     <color name="warning_stroke_color">#F8BB86</color>
@@ -36,8 +36,8 @@
     <color name="main_green_stroke_color">#60bf04</color>
     <color name="main_orange_color">#f77805</color>
     <color name="main_orange_stroke_color">#e66f04</color>
-    <color name="main_orange_light_color">#f7b90d</color>
-    <color name="main_orange_light_stroke_color">#e4ab0c</color>
+    <color name="main_orange_light_color">#F6B606</color>
+    <color name="main_orange_light_stroke_color">#D8A106</color>
     <color name="main_blue_color">#2469df</color>
     <color name="main_blue_stroke_color">#205ec7</color>
     <color name="main_cyan_color">#05d9f7</color>
@@ -45,4 +45,9 @@
 
     <color name="main_disabled_color">#838383</color>
     <color name="main_disabled_stroke_color">#707070</color>
+
+    <color name="cyan_color">#009688</color>
+    <color name="cyan_color_stroke">#018579</color>
+
+
 </resources>

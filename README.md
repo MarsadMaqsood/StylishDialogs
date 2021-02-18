@@ -16,7 +16,7 @@ Stylish Alert Dialogs for Android.
 - Ability to set text size
 - Ability to set color of buttons
 
-### Upcomming Dialog Designs
+### Upcoming Dialog Designs
 - Text Bouncing Dialog
 
 
