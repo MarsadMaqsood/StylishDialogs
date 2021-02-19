@@ -54,12 +54,21 @@ Stylish Alert Dialogs for Android.
 
 Show simple material progress
 
+**Java**
+
     StylishAlertDialog pDialog = new StylishAlertDialog(this, StylishAlertDialog.PROGRESS);
     pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
     pDialog.setTitleText("Loading");
     pDialog.setCancelable(false);
     pDialog.show();
+---
+**Kotlin**
 
+    val pDialog = StylishAlertDialog(this, StylishAlertDialog.PROGRESS)
+    pDialog.progressHelper.barColor = Color.parseColor("#A5DC86")
+    pDialog.titleText = "Loading"
+    pDialog.setCancelable(false)
+    pDialog.show()
 
 
 You can customize progress bar dynamically with the materialish-progress methods via
@@ -91,7 +100,7 @@ Code Samples
 
 Simple basic message：
 
-**JAVA**
+**Java**
 
     new StylishAlertDialog(this)
         .setTitleText("Here's a message!")
