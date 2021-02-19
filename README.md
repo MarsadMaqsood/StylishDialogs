@@ -91,48 +91,111 @@ Code Samples
 
 Simple basic message：
 
+**JAVA**
+
     new StylishAlertDialog(this)
         .setTitleText("Here's a message!")
         .show();
+        
+___
+**Kotlin**
+
+    StylishAlertDialog(this)
+        .setTitleText("Here's a message!")
+        .show()
 
 Title with a text under：
+
+**Java**
 
     new StylishAlertDialog(this)
         .setTitleText("Here's a message!")
         .setContentText("It's pretty, isn't it?")
         .show();
+        
+___
+**Kotlin**
+   
+    StylishAlertDialog(this)
+        .setTitleText("Here's a message!")
+        .setContentText("It's pretty, isn't it?")
+        .show()
 
 Error message：
+
+**Java**
 
     new StylishAlertDialog(this, StylishAlertDialog.ERROR)
         .setTitleText("Oops...")
         .setContentText("Something went wrong!")
         .show();
+---
+**Kotlin**
+
+    StylishAlertDialog(this, StylishAlertDialog.ERROR)
+        .setTitleText("Oops...")
+        .setContentText("Something went wrong!")
+        .show()
+        
 
 Warning message：
+
+**Java**
 
     new StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
         .setContentText("Won't be able to recover this file!")
-        .setConfirmText("Yes,delete it!")
+        .setConfirmText("Yes, delete it!")
         .show();
+   
+---
+**Kotlin**
+
+    StylishAlertDialog(this, StylishAlertDialog.WARNING)
+        .setTitleText("Are you sure?")
+        .setContentText("Won't be able to recover this file!")
+        .setConfirmText("Yes, delete it!")
+        .show()
 
 Success message：
+
+**Java**
 
     new StylishAlertDialog(this, StylishAlertDialog.SUCCESS)
         .setTitleText("Good job!")
         .setContentText("You clicked the button!")
         .show();
+        
+---
+**Kotlin**
+
+    StylishAlertDialog(this, StylishAlertDialog.SUCCESS)
+        .setTitleText("Good job!")
+        .setContentText("You clicked the button!")
+        .show()
 
 Message with a custom icon：
+
+**Java**
 
     new StylishAlertDialog(this, StylishAlertDialog.CUSTOM_IMAGE)
         .setTitleText("Stylish!")
         .setContentText("Here's a custom image.")
         .setCustomImage(R.drawable.custom_img)
         .show();
+        
+---
+**Kotlin**
+
+    StylishAlertDialog(this, StylishAlertDialog.CUSTOM_IMAGE)
+        .setTitleText("Stylish!")
+        .setContentText("Here's a custom image.")
+        .setCustomImage(R.drawable.custom_img)
+        .show()
 
 Message with a custom view：
+
+**Java**
 
     final EditText editText = new EditText(this);
     new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
@@ -140,9 +203,20 @@ Message with a custom view：
             .setConfirmText("Ok")
             .setCustomView(editText)
             .show();
+---
+**Kotlin**
+
+    val editText = EditText(this)
+    StylishAlertDialog(this, StylishAlertDialog.NORMAL)
+        .setTitleText("Custom view")
+        .setConfirmText("Ok")
+        .setCustomView(editText)
+        .show()
 
 
 Different ways to bind the listener to button：
+
+**Java**
 
     new StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
@@ -161,9 +235,20 @@ Different ways to bind the listener to button：
             }
         })
         .show();
+---
+**Kotlin**
 
+    StylishAlertDialog(this, StylishAlertDialog.WARNING)
+        .setTitleText("Are you sure?")
+        .setContentText("Won't be able to recover this file!")
+        .setConfirmText("Yes,delete it!")
+        .setConfirmClickListener(StylishAlertDialog::dismissWithAnimation)
+        .setCancelButton("Cancel",StylishAlertDialog::dismissWithAnimation)
+        .show()
 
 Disable button
+
+**Java**
 
     final StylishAlertDialog disabledBtnDialog = new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
             .setTitleText("Title")
@@ -178,9 +263,23 @@ Disable button
         }
     });
     disabledBtnDialog.show();
+---
+**Kotlin**
+
+    val disabledBtnDialog = StylishAlertDialog(this, StylishAlertDialog.NORMAL)
+        .setTitleText("Title")
+        .setContentText("Disabled button dialog")
+        .setConfirmText("Confirm")
+        .setCancelText("Cancel")
+        disabledBtnDialog.setOnShowListener {
+            disabledBtnDialog.getButton(StylishAlertDialog.BUTTON_CONFIRM).isEnabled = false
+        }
+        disabledBtnDialog.show()
 
 
 **Change** the dialog style upon confirming：
+
+**Java**
 
     new StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
@@ -198,6 +297,22 @@ Disable button
             }
         })
         .show();
+---
+**Kotlin**
+
+        StylishAlertDialog(this, StylishAlertDialog.WARNING)
+            .setTitleText("Are you sure?")
+            .setContentText("Won't be able to recover this file!")
+            .setConfirmText("Yes, delete it!")
+            .setConfirmClickListener { sDialog ->
+                sDialog.setTitleText("Deleted!")
+                    .setContentText("Your imaginary file has been deleted!")
+                    .setConfirmText("OK")
+                    .setConfirmClickListener(null)
+                    .changeAlertType(StylishAlertDialog.SUCCESS)
+            }
+            .show()
+        
 
 ## License
 
