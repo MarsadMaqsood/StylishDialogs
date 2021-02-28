@@ -325,9 +325,9 @@ Disable button
 
 **Proguard-Rules**
 
-	-keep class com.marsad.stylishdialogs.RotatingAnimation {
-    		public <init>(...);
-	}
+	    -keep class com.marsad.stylishdialogs.RotatingAnimation {
+    	    public <init>(...);
+	    }
 
 
 
