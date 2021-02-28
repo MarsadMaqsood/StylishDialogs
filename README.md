@@ -323,6 +323,14 @@ Disable button
             .show()
         
 
+**Proguard-Rules**
+
+	-keep class com.marsad.stylishdialogs.RotatingAnimation {
+    		public <init>(...);
+	}
+
+
+
 ## License
 
     The MIT License (MIT)
