@@ -63,9 +63,7 @@ public class AnimLoader {
                 continue;
             }
 
-            String name1 = parser.getName();
-
-            String name = name1;
+            String name = parser.getName();
 
             switch (name) {
                 case "set":

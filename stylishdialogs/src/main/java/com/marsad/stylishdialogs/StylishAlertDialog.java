@@ -31,6 +31,17 @@ import com.pnikosis.materialishprogress.ProgressWheel;
 import java.util.List;
 
 public class StylishAlertDialog extends Dialog implements View.OnClickListener {
+    public static final int NORMAL = 0;
+    public static final int ERROR = 1;
+    public static final int SUCCESS = 2;
+    public static final int WARNING = 3;
+    public static final int CUSTOM_IMAGE = 4;
+    public static final int PROGRESS = 5;
+    //aliases
+    public final static int BUTTON_CONFIRM = DialogInterface.BUTTON_POSITIVE;
+    public final static int BUTTON_CANCEL = DialogInterface.BUTTON_NEGATIVE;
+    public static boolean DARK_STYLE = false;
+    private final float defStrokeWidth;
     private View mDialogView;
     private AnimationSet mModalInAnim;
     private AnimationSet mModalOutAnim;
@@ -79,33 +90,8 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private boolean mCloseFromCancel;
     private boolean mHideKeyBoardOnDismiss = true;
     private int contentTextSize = 0;
-
-    public static final int NORMAL = 0;
-    public static final int ERROR = 1;
-    public static final int SUCCESS = 2;
-    public static final int WARNING = 3;
-    public static final int CUSTOM_IMAGE = 4;
-    public static final int PROGRESS = 5;
-
-
-    public static boolean DARK_STYLE = false;
-
-    //aliases
-    public final static int BUTTON_CONFIRM = DialogInterface.BUTTON_POSITIVE;
-    public final static int BUTTON_CANCEL = DialogInterface.BUTTON_NEGATIVE;
-
-    private final float defStrokeWidth;
     private float strokeWidth = 0;
 
-
-    public StylishAlertDialog hideConfirmButton() {
-        this.mHideConfirmButton = true;
-        return this;
-    }
-
-    public interface OnStylishClickListener {
-        void onClick(StylishAlertDialog StylishAlertDialog);
-    }
 
     public StylishAlertDialog(Context context) {
         this(context, NORMAL);
@@ -180,6 +166,15 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
             }
         };
         mOverlayOutAnim.setDuration(120);
+    }
+
+    public static int spToPx(float sp, Context context) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, context.getResources().getDisplayMetrics());
+    }
+
+    public StylishAlertDialog hideConfirmButton() {
+        this.mHideConfirmButton = true;
+        return this;
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -376,10 +371,6 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public static int spToPx(float sp, Context context) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, context.getResources().getDisplayMetrics());
-    }
-
     /**
      * @param width in SP
      */
@@ -446,14 +437,18 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
+    public Integer getConfirmButtonBackgroundColor() {
+        return mConfirmButtonBackgroundColor;
+    }
+
     public StylishAlertDialog setConfirmButtonBackgroundColor(Integer color) {
         mConfirmButtonBackgroundColor = color;
         setButtonBackgroundColor(mConfirmButton, color);
         return this;
     }
 
-    public Integer getConfirmButtonBackgroundColor() {
-        return mConfirmButtonBackgroundColor;
+    public Integer getNeutralButtonBackgroundColor() {
+        return mNeutralButtonBackgroundColor;
     }
 
     public StylishAlertDialog setNeutralButtonBackgroundColor(Integer color) {
@@ -462,18 +457,14 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public Integer getNeutralButtonBackgroundColor() {
-        return mNeutralButtonBackgroundColor;
+    public Integer getCancelButtonBackgroundColor() {
+        return mCancelButtonBackgroundColor;
     }
 
     public StylishAlertDialog setCancelButtonBackgroundColor(Integer color) {
         mCancelButtonBackgroundColor = color;
         setButtonBackgroundColor(mCancelButton, color);
         return this;
-    }
-
-    public Integer getCancelButtonBackgroundColor() {
-        return mCancelButtonBackgroundColor;
     }
 
     private void setButtonBackgroundColor(Button btn, Integer color) {
@@ -496,6 +487,10 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return Color.HSVToColor(hsv);
     }
 
+    public Integer getConfirmButtonTextColor() {
+        return mConfirmButtonTextColor;
+    }
+
     public StylishAlertDialog setConfirmButtonTextColor(Integer color) {
         mConfirmButtonTextColor = color;
         if (mConfirmButton != null && color != null) {
@@ -504,8 +499,8 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public Integer getConfirmButtonTextColor() {
-        return mConfirmButtonTextColor;
+    public Integer getNeutralButtonTextColor() {
+        return mNeutralButtonTextColor;
     }
 
     public StylishAlertDialog setNeutralButtonTextColor(Integer color) {
@@ -516,8 +511,8 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public Integer getNeutralButtonTextColor() {
-        return mNeutralButtonTextColor;
+    public Integer getCancelButtonTextColor() {
+        return mCancelButtonTextColor;
     }
 
     public StylishAlertDialog setCancelButtonTextColor(Integer color) {
@@ -526,10 +521,6 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
             mCancelButton.setTextColor(mCancelButtonTextColor);
         }
         return this;
-    }
-
-    public Integer getCancelButtonTextColor() {
-        return mCancelButtonTextColor;
     }
 
     public StylishAlertDialog setCancelClickListener(OnStylishClickListener listener) {
@@ -590,7 +581,6 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
-
     public StylishAlertDialog setCancelButton(String text, OnStylishClickListener listener) {
         this.setCancelText(text);
         this.setCancelClickListener(listener);
@@ -615,6 +605,10 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
+    public int getContentTextSize() {
+        return contentTextSize;
+    }
+
     /**
      * Set content text size
      *
@@ -623,10 +617,6 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     public StylishAlertDialog setContentTextSize(int value) {
         this.contentTextSize = value;
         return this;
-    }
-
-    public int getContentTextSize() {
-        return contentTextSize;
     }
 
     protected void onStart() {
@@ -698,13 +688,13 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return mProgressHelper;
     }
 
+    public boolean isHideKeyBoardOnDismiss() {
+        return this.mHideKeyBoardOnDismiss;
+    }
+
     public StylishAlertDialog setHideKeyBoardOnDismiss(boolean hide) {
         this.mHideKeyBoardOnDismiss = hide;
         return this;
-    }
-
-    public boolean isHideKeyBoardOnDismiss() {
-        return this.mHideKeyBoardOnDismiss;
     }
 
     private void hideSoftKeyboard() {
@@ -715,5 +705,9 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
                 inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
             }
         }
+    }
+
+    public interface OnStylishClickListener {
+        void onClick(StylishAlertDialog StylishAlertDialog);
     }
 }

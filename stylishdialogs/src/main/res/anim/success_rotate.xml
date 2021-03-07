@@ -7,4 +7,4 @@
     android:pivotX="0%"
     android:pivotY="50%"
     android:startOffset="215"
-    android:toDegrees="-405"/>
+    android:toDegrees="-405" />
