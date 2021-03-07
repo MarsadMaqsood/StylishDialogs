@@ -1,4 +1,4 @@
-[![GitHub version](https://jitpack.io/v/MarsadMaqsood/StylishDialogs.svg)](https://jitpack.io/#MarsadMaqsood/StylishDialogs)
+
 
 Stylish Alert Dialog
 ===================
