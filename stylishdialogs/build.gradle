@@ -1,15 +1,20 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+        maven { url "https://jitpack.io" }
+    }
+    
+}
+
 plugins {
     id 'com.android.library'
     id 'maven-publish'
-}
 
-repositories {
-    mavenCentral()
-    google()
-    maven { url "https://jitpack.io" }
 }
 
 group = 'com.github.MarsadMaqsood'
+version = '1.0'
 
 android {
     compileSdkVersion 30
