@@ -1,11 +1,10 @@
 package com.marsad.stylishdialogs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,33 +14,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.simpleMsgDialog)
-                .setOnClickListener(v -> {
-                    new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
-                            .setContentText("Hey, You try me")
-                            .show();
-                });
+                .setOnClickListener(v ->
+                        new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
+                                .setContentText("Hey, You try me")
+                                .show()
+                );
 
         findViewById(R.id.titleWTextDialog)
-                .setOnClickListener(v -> {
-                    new StylishAlertDialog(this, StylishAlertDialog.PROGRESS)
-                            .setTitleText("Hey, This is title")
-                            .setContentText("Content text")
-                            .show();
-                });
+                .setOnClickListener(v ->
+                        new StylishAlertDialog(this, StylishAlertDialog.PROGRESS)
+                                .setTitleText("Hey, This is title")
+                                .setContentText("Content text")
+                                .show()
+                );
 
         findViewById(R.id.successMsgDialog)
-                .setOnClickListener(v -> {
-                    new StylishAlertDialog(this, StylishAlertDialog.SUCCESS)
-                            .setContentText("Hey, You try me")
-                            .show();
-                });
+                .setOnClickListener(v ->
+                        new StylishAlertDialog(this, StylishAlertDialog.SUCCESS)
+                                .setContentText("Hey, You try me")
+                                .show()
+                );
 
         findViewById(R.id.errorMsgDialog)
-                .setOnClickListener(v -> {
-                    new StylishAlertDialog(this, StylishAlertDialog.ERROR)
-                            .setContentText("Hey, You try me")
-                            .show();
-                });
+                .setOnClickListener(v ->
+                        new StylishAlertDialog(this, StylishAlertDialog.ERROR)
+                                .setContentText("Hey, You try me")
+                                .show()
+                );
 
         findViewById(R.id.successWithNormalDialog)
                 .setOnClickListener(v -> {
@@ -55,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                                 alertDialog.changeAlertType(StylishAlertDialog.SUCCESS);
                                 alertDialog.setContentText("Task Completed");
                                 alertDialog.setConfirmButton("OK", StylishAlertDialog::dismissWithAnimation);
+                                alertDialog.setCancelButton("Cancel", StylishAlertDialog::dismissWithAnimation);
                             }, 2500);
 
                 });
