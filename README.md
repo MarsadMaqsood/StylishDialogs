@@ -95,6 +95,8 @@ You can customize progress bar dynamically with the materialish-progress methods
 	setRimColor(int rimColor)
 	getSpinSpeed()
 	setSpinSpeed(float spinSpeed)
+	getButton(/*StylishAlertDialog.Button)Type*/)
+	getButton(/*StylishAlertDialog.Button)Type*/).setBackgroundTintList()
 
 thanks to the project [materialish-progress](https://github.com/pnikosis/materialish-progress)
 
