@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                                 alertDialog.changeAlertType(StylishAlertDialog.SUCCESS);
                                 alertDialog.setContentText("Task Completed");
                                 alertDialog.setConfirmButton("OK", StylishAlertDialog::dismissWithAnimation);
-                                alertDialog.setNeutralButton("OK n", StylishAlertDialog::dismissWithAnimation);
                                 alertDialog.setCancelButton("Cancel", StylishAlertDialog::dismissWithAnimation);
                             }, 2500);
 
@@ -73,4 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 });
 
     }
+
+
 }
