@@ -22,10 +22,15 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.titleWTextDialog)
                 .setOnClickListener(v ->
-                        new StylishAlertDialog(this, StylishAlertDialog.PROGRESS)
-                                .setTitleText("Hey, This is title")
-                                .setContentText("Content text")
-                                .show()
+                                new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
+                                        .setTitleText("Hey, This is title")
+                                        .setContentText("Content text")
+//                                    .setCancellable(false)
+                                        .setCancelledOnTouchOutside(false)
+                                        .setConfirmButton("Dismiss", StylishAlertDialog::dismissWithAnimation)
+                                        .show()
+
+
                 );
 
         findViewById(R.id.successMsgDialog)

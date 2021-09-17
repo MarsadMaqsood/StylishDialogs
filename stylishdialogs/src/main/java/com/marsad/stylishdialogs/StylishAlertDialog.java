@@ -42,6 +42,8 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     public final static int BUTTON_CANCEL = DialogInterface.BUTTON_NEGATIVE;
     public static boolean DARK_STYLE = false;
     private final float defStrokeWidth;
+    boolean mCancelable = true;
+    boolean mCanceledOnTouchOutside = true;
     private View mDialogView;
     private AnimationSet mModalInAnim;
     private AnimationSet mModalOutAnim;
@@ -92,15 +94,12 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private int contentTextSize = 0;
     private float strokeWidth = 0;
 
-
     public StylishAlertDialog(Context context) {
         this(context, NORMAL);
     }
 
     public StylishAlertDialog(Context context, int alertType) {
         super(context, DARK_STYLE ? R.style.alert_dialog_dark : R.style.alert_dialog_light);
-        setCancelable(true);
-        setCanceledOnTouchOutside(true); //TODO was false
 
         defStrokeWidth = getContext().getResources().getDimension(R.dimen.buttons_stroke_width);
         strokeWidth = defStrokeWidth;
@@ -220,6 +219,10 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         setNeutralButtonBackgroundColor(mNeutralButtonBackgroundColor);
         setNeutralButtonTextColor(mNeutralButtonTextColor);
         changeAlertType(mAlertType, true);
+        //todo:
+        setCancelable(mCancelable);
+        if (getCancellable())
+            setCanceledOnTouchOutside(mCanceledOnTouchOutside);
 
     }
 
@@ -313,6 +316,29 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
 
     public void changeAlertType(int alertType) {
         changeAlertType(alertType, false);
+    }
+
+    public boolean getCancellable() {
+        return mCancelable;
+    }
+
+    public StylishAlertDialog setCancellable(boolean cancelable) {
+        mCancelable = cancelable;
+        return this;
+    }
+
+    public boolean getCancelledOnTouchOutside() {
+        return mCanceledOnTouchOutside;
+    }
+
+    public StylishAlertDialog setCancelledOnTouchOutside(boolean cancelledOnTouchOutside) {
+        mCanceledOnTouchOutside = cancelledOnTouchOutside;
+        return this;
+    }
+
+    @Override
+    public void setCancelable(boolean flag) {
+        super.setCancelable(flag);
     }
 
     public String getTitleText() {
