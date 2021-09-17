@@ -57,47 +57,58 @@ Stylish Alert Dialogs for Android.
 Show simple material progress
 
 **Java**
-
-    StylishAlertDialog pDialog = new StylishAlertDialog(this, StylishAlertDialog.PROGRESS);
-    pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-    pDialog.setTitleText("Loading");
-    pDialog.setCancelable(false);
-    pDialog.show();
+```java
+StylishAlertDialog stylishDialog = new StylishAlertDialog(this, StylishAlertDialog.PROGRESS);
+stylishDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+pDialog.setTitleText("Loading")
+       .setCancellable(false)
+       //.setCancelledOnTouchOutside(false)
+       .show();
+       
+```
 ---
 **Kotlin**
-
-    val pDialog = StylishAlertDialog(this, StylishAlertDialog.PROGRESS)
-    pDialog.progressHelper.barColor = Color.parseColor("#A5DC86")
-    pDialog.titleText = "Loading"
-    pDialog.setCancelable(false)
-    pDialog.show()
+```kotlin
+val pDialog = StylishAlertDialog(this, StylishAlertDialog.PROGRESS)
+pDialog.progressHelper.barColor = Color.parseColor("#A5DC86")
+pDialog.setTitleText("Loading")
+       .setCancellable(false)
+       //.setCancelledOnTouchOutside(false)
+       .show()
+	   
+```
 
 
 You can customize progress bar dynamically with the materialish-progress methods via
-    ```StylishAlertDialog.getProgressHelper();```
-    
-	resetCount()
-	isSpinning()
-	spin()
-	stopSpinning()
-	getProgress()
-	setProgress(float progress)
-	setInstantProgress(float progress)
-	getCircleRadius()
-	setCircleRadius(int circleRadius)
-	getBarWidth()
-	setBarWidth(int barWidth)
-	getBarColor()
-	setBarColor(int barColor)
-	getRimWidth()
-	setRimWidth(int rimWidth)
-	getRimColor()
-	setRimColor(int rimColor)
-	getSpinSpeed()
-	setSpinSpeed(float spinSpeed)
-	getButton(/*StylishAlertDialog.Button)Type*/)
-	getButton(/*StylishAlertDialog.Button)Type*/).setBackgroundTintList()
+```java
+StylishAlertDialog.getProgressHelper();
+```
+```java
+resetCount()
+isSpinning()
+spin()
+stopSpinning()
+getProgress()
+setProgress(float progress)
+setInstantProgress(float progress)
+getCircleRadius()
+setCircleRadius(int circleRadius)
+getBarWidth()
+setBarWidth(int barWidth)
+getBarColor()
+setBarColor(int barColor)
+getRimWidth()
+setRimWidth(int rimWidth)
+getRimColor()
+setRimColor(int rimColor)
+getSpinSpeed()
+setSpinSpeed(float spinSpeed)
+getButton(/*StylishAlertDialog.Button)Type*/)
+getButton(/*StylishAlertDialog.Button)Type*/).setBackgroundTintList()
+setCancellable(boolean cancellable)
+setCancelledOnTouchOutside(boolean cancelledOnTouchOutside)
 
+```
 thanks to the project [materialish-progress](https://github.com/pnikosis/materialish-progress)
 
 Code Samples
@@ -105,152 +116,155 @@ Code Samples
 Simple basic message：
 
 **Java**
-
+```java
     new StylishAlertDialog(this)
-        .setTitleText("Here's a message!")
-        .show();
-        
+            .setTitleText("Here's a message!")
+            .show();
+```        
 ___
 **Kotlin**
-
+```kotlin
     StylishAlertDialog(this)
         .setTitleText("Here's a message!")
         .show()
-
+```
 Title with a text under：
 
 **Java**
-
+```java
     new StylishAlertDialog(this)
-        .setTitleText("Here's a message!")
-        .setContentText("It's pretty, isn't it?")
-        .show();
-        
+            .setTitleText("Here's a message!")
+            .setContentText("It's pretty, isn't it?")
+            .show();
+```        
 ___
 **Kotlin**
-   
+   ```kotlin
     StylishAlertDialog(this)
         .setTitleText("Here's a message!")
         .setContentText("It's pretty, isn't it?")
         .show()
-
+```
 Error message：
 
 **Java**
-
+```java
     new StylishAlertDialog(this, StylishAlertDialog.ERROR)
-        .setTitleText("Oops...")
-        .setContentText("Something went wrong!")
-        .show();
+            .setTitleText("Oops...")
+            .setContentText("Something went wrong!")
+            .show();
+```
 ---
 **Kotlin**
-
+```kotlin
     StylishAlertDialog(this, StylishAlertDialog.ERROR)
         .setTitleText("Oops...")
         .setContentText("Something went wrong!")
         .show()
-        
+```        
 
 Warning message：
 
 **Java**
-
+```java
     new StylishAlertDialog(this, StylishAlertDialog.WARNING)
-        .setTitleText("Are you sure?")
-        .setContentText("Won't be able to recover this file!")
-        .setConfirmText("Yes, delete it!")
-        .show();
-   
+            .setTitleText("Are you sure?")
+            .setContentText("Won't be able to recover this file!")
+            .setConfirmText("Yes, delete it!")
+            .show();
+```
 ---
 **Kotlin**
-
+```kotlin
     StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
         .setContentText("Won't be able to recover this file!")
         .setConfirmText("Yes, delete it!")
         .show()
-
+```
 Success message：
 
 **Java**
-
+```java
     new StylishAlertDialog(this, StylishAlertDialog.SUCCESS)
-        .setTitleText("Good job!")
-        .setContentText("You clicked the button!")
-        .show();
-        
+            .setTitleText("Good job!")
+            .setContentText("You clicked the button!")
+            .show();
+```
 ---
 **Kotlin**
-
+```kotlin
     StylishAlertDialog(this, StylishAlertDialog.SUCCESS)
         .setTitleText("Good job!")
         .setContentText("You clicked the button!")
         .show()
-
+```
 Message with a custom icon：
 
 **Java**
-
+```java
     new StylishAlertDialog(this, StylishAlertDialog.CUSTOM_IMAGE)
-        .setTitleText("Stylish!")
-        .setContentText("Here's a custom image.")
-        .setCustomImage(R.drawable.custom_img)
-        .show();
-        
+            .setTitleText("Stylish!")
+            .setContentText("Here's a custom image.")
+            .setCustomImage(R.drawable.custom_img)
+            .show();
+``` 
 ---
 **Kotlin**
-
+```kotlin
     StylishAlertDialog(this, StylishAlertDialog.CUSTOM_IMAGE)
         .setTitleText("Stylish!")
         .setContentText("Here's a custom image.")
         .setCustomImage(R.drawable.custom_img)
         .show()
-
+```
 Message with a custom view：
 
 **Java**
-
+```java
     final EditText editText = new EditText(this);
     new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
             .setTitleText("Custom view")
             .setConfirmText("Ok")
             .setCustomView(editText)
             .show();
+```
 ---
 **Kotlin**
-
+```kotlin
     val editText = EditText(this)
     StylishAlertDialog(this, StylishAlertDialog.NORMAL)
         .setTitleText("Custom view")
         .setConfirmText("Ok")
         .setCustomView(editText)
         .show()
-
+```
 
 Different ways to bind the listener to button：
 
 **Java**
 
+```java
     new StylishAlertDialog(this, StylishAlertDialog.WARNING)
-        .setTitleText("Are you sure?")
-        .setContentText("Won't be able to recover this file!")
-        .setConfirmText("Yes,delete it!")
-        .setConfirmClickListener(new StylishAlertDialog.OnStylishClickListener() {
-            @Override
-            public void onClick(StylishAlertDialog sDialog) {
-                sDialog.dismissWithAnimation();
-            }
-        })
-        .setCancelButton("Cancel", new StylishAlertDialog.OnStylishClickListener() {
-            @Override
-            public void onClick(StylishAlertDialog sDialog) {
-                sDialog.dismissWithAnimation();
-            }
-        })
-        .show();
+                .setTitleText("Are you sure?")
+                .setContentText("Won't be able to recover this file!")
+                .setConfirmText("Yes,delete it!")
+                .setConfirmClickListener(new StylishAlertDialog.OnStylishClickListener() {
+        @Override
+        public void onClick(StylishAlertDialog sDialog) {
+            sDialog.dismissWithAnimation();
+        }
+    })
+            .setCancelButton("Cancel", new StylishAlertDialog.OnStylishClickListener() {
+        @Override
+        public void onClick(StylishAlertDialog sDialog) {
+            sDialog.dismissWithAnimation();
+        }
+    }).show();
+```
 ---
 **Kotlin**
-
+```kotlin
     StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
         .setContentText("Won't be able to recover this file!")
@@ -258,27 +272,31 @@ Different ways to bind the listener to button：
         .setConfirmClickListener(StylishAlertDialog::dismissWithAnimation)
         .setCancelButton("Cancel",StylishAlertDialog::dismissWithAnimation)
         .show()
-
+```
 Disable button
 
 **Java**
-
-    final StylishAlertDialog disabledBtnDialog = new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
-            .setTitleText("Title")
-            .setContentText("Disabled button dialog")
-            .setConfirmText("Confirm")
-            .setCancelText("Cancel")
-
-    disabledBtnDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+```java
+    new StylishAlertDialog(this, StylishAlertDialog.WARNING)
+                .setTitleText("Are you sure?")
+                .setContentText("Won't be able to recover this file!")
+                .setConfirmText("Yes, delete it!")
+                .setConfirmClickListener(new StylishAlertDialog.OnStylishClickListener() {
         @Override
-        public void onShow(DialogInterface dialog) {
-            disabledBtnDialog.getButton(StylishAlertDialog.BUTTON_CONFIRM).setEnabled(false);
+        public void onClick(StylishAlertDialog sDialog) {
+            sDialog
+                    .setTitleText("Deleted!")
+                    .setContentText("Your imaginary file has been deleted!")
+                    .setConfirmText("OK")
+                    .setConfirmClickListener(null)
+                    .changeAlertType(StylishAlertDialog.SUCCESS);
         }
-    });
-    disabledBtnDialog.show();
+    }).show();
+    
+```
 ---
 **Kotlin**
-
+```kotlin
     val disabledBtnDialog = StylishAlertDialog(this, StylishAlertDialog.NORMAL)
         .setTitleText("Title")
         .setContentText("Disabled button dialog")
@@ -289,11 +307,13 @@ Disable button
         }
         disabledBtnDialog.show()
 
+```
 
 **Change** the dialog style upon confirming：
 
 **Java**
 
+```java
     new StylishAlertDialog(this, StylishAlertDialog.WARNING)
         .setTitleText("Are you sure?")
         .setContentText("Won't be able to recover this file!")
@@ -310,8 +330,10 @@ Disable button
             }
         })
         .show();
+```
 ---
 **Kotlin**
+```kotlin
 
         StylishAlertDialog(this, StylishAlertDialog.WARNING)
             .setTitleText("Are you sure?")
@@ -325,14 +347,14 @@ Disable button
                     .changeAlertType(StylishAlertDialog.SUCCESS)
             }
             .show()
-        
+```     
 
 **Proguard-Rules**
-
-	    -keep class com.marsad.stylishdialogs.RotatingAnimation {
-    	    public <init>(...);
-	    }
-
+```pro
+-keep class com.marsad.stylishdialogs.RotatingAnimation {
+	    public <init>(...);
+}
+```
 
 
 ## License
