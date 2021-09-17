@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stylish="http://schemas.android.com/apk/res-auto"
+    android:interpolator="@android:anim/linear_interpolator"
+    android:shareInterpolator="true">
+
+    <alpha
+        android:duration="400"
+        android:fromAlpha="0"
+        android:toAlpha="1" />
+
+    <stylish:com.marsad.stylishdialogs.RotatingAnimation
+        android:duration="400"
+        stylish:customPivotX="50%"
+        stylish:customPivotY="50%"
+        stylish:fromDeg="100"
+        stylish:rollType="x"
+        stylish:toDeg="0" />
+
+</set>

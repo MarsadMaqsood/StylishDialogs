@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/buttons_stroke_width" android:color="@color/main_disabled_stroke_color" />
+            <solid android:color="@color/main_disabled_color" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/buttons_stroke_width" android:color="@color/cyan_color_stroke" />
+            <solid android:color="@color/cyan_color" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</selector>

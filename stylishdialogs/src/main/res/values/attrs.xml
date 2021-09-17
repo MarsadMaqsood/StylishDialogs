@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RotatingAnimation">
+        <attr name="rollType" format="enum">
+            <enum name="x" value="0" />
+            <enum name="y" value="1" />
+            <enum name="z" value="2" />
+        </attr>
+        <attr name="fromDeg" format="float" />
+        <attr name="toDeg" format="float" />
+        <attr name="customPivotX" format="fraction" />
+        <attr name="customPivotY" format="fraction" />
+    </declare-styleable>
+
+    <attr name="stylish_alert_bg_drawable" format="reference" />
+    <attr name="stylish_alert_title_text_color" format="color|reference" />
+    <attr name="stylish_alert_content_text_color" format="color|reference" />
+
+</resources>
