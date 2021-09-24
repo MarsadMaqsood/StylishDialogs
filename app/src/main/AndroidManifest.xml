@@ -12,6 +12,9 @@
         android:theme="@style/Theme.StylishDialogs"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".MainActivityKotlin"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

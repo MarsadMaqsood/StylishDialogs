@@ -44,6 +44,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private final float defStrokeWidth;
     boolean mCancelable = true;
     boolean mCanceledOnTouchOutside = true;
+    boolean mDismissOnClick = false;
     private View mDialogView;
     private AnimationSet mModalInAnim;
     private AnimationSet mModalOutAnim;
@@ -322,8 +323,23 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return mCancelable;
     }
 
+    /**
+     * setCancellable
+     * This will prevent the dialog from dismissing
+     * @param cancelable value in boolean default is true
+     */
     public StylishAlertDialog setCancellable(boolean cancelable) {
         mCancelable = cancelable;
+        return this;
+    }
+
+    /**
+     * setDismissOnClick
+     * This will close the dialog when the button clicked
+     * @param dismissOnClick in boolean default is false
+     */
+    public StylishAlertDialog setDismissOnClick(boolean dismissOnClick) {
+        mDismissOnClick = dismissOnClick;
         return this;
     }
 
@@ -331,6 +347,11 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return mCanceledOnTouchOutside;
     }
 
+    /**
+     * setCancelledOnTouchOutside
+     * This will prevent the dialog from dismissing when clicked outside the dialog
+     * @param cancelledOnTouchOutside in boolean default is true
+     */
     public StylishAlertDialog setCancelledOnTouchOutside(boolean cancelledOnTouchOutside) {
         mCanceledOnTouchOutside = cancelledOnTouchOutside;
         return this;
@@ -345,6 +366,11 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         return mTitleText;
     }
 
+    /**
+     * setTitleText
+     * set title to dialog
+     * @param text in String
+     */
     public StylishAlertDialog setTitleText(String text) {
         mTitleText = text;
         if (mTitleTextView != null && mTitleText != null) {
@@ -688,6 +714,10 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        if (mDismissOnClick)
+            dismissWithAnimation();
+
         if (v.getId() == R.id.cancel_button) {
             if (mCancelClickListener != null) {
                 mCancelClickListener.onClick(StylishAlertDialog.this);

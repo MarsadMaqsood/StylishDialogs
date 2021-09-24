@@ -83,7 +83,6 @@ public class AnimLoader {
                     anim = new TranslateAnimation(c, attrs);
                     break;
                 default:
-                    Log.d("ANIM_NAME", name);
                     try {
                         anim = (Animation) Class.forName(name).getConstructor(Context.class, AttributeSet.class).newInstance(c, attrs);
                     } catch (Exception te) {

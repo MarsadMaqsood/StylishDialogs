@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.titleWTextDialog)
                 .setOnClickListener(v ->
-                                new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
-                                        .setTitleText("Hey, This is title")
-                                        .setContentText("Content text")
-//                                    .setCancellable(false)
-                                        .setCancelledOnTouchOutside(false)
-                                        .setConfirmButton("Dismiss", StylishAlertDialog::dismissWithAnimation)
-                                        .show()
+                        new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
+                                .setTitleText("Hey, This is title")
+                                .setContentText("Content text")
+                                //.setCancellable(false)
+                                .setCancelledOnTouchOutside(false)
+                                .setConfirmButton("Dismiss", StylishAlertDialog::dismissWithAnimation)
+                                .show()
 
 
                 );
@@ -64,19 +64,23 @@ public class MainActivity extends AppCompatActivity {
 
                 });
 
+
         findViewById(R.id.warnWithConfirmBtn)
                 .setOnClickListener(v -> {
                     StylishAlertDialog alertDialog = new StylishAlertDialog(this, StylishAlertDialog.WARNING);
                     alertDialog.setContentText("Are you sure you want to proceed")
                             .setConfirmButton("Yes, Proceed", StylishAlertDialog -> {
                                 alertDialog.changeAlertType(com.marsad.stylishdialogs.StylishAlertDialog.SUCCESS);
-                                alertDialog.setContentText("Job Done");
-                                alertDialog.setConfirmButton("OK", com.marsad.stylishdialogs.StylishAlertDialog::dismissWithAnimation);
+                                alertDialog.setContentText("Job Done")
+                                        .setDismissOnClick(true);
+                                alertDialog.setConfirmButton("OK", StylishAlertDialog1 -> System.out.println("Completed"));
+
                             })
+
                             .show();
+
                 });
 
     }
-
 
 }
