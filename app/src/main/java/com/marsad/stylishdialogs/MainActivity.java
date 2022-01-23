@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
                                 .setConfirmButton("Dismiss", StylishAlertDialog::dismissWithAnimation)
                                 .show()
 
-
                 );
 
         findViewById(R.id.successMsgDialog)

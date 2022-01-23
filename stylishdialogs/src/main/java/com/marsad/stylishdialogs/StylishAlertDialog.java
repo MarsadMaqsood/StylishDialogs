@@ -94,6 +94,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private boolean mHideKeyBoardOnDismiss = true;
     private int contentTextSize = 0;
     private float strokeWidth = 0;
+    private boolean isWithContent;
 
     public StylishAlertDialog(Context context) {
         this(context, NORMAL);
@@ -208,7 +209,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
 
         setTitleText(mTitleText);
         setContentText(mContentText);
-        setCustomView(mCustomView);
+        setCustomView(mCustomView, isWithContent);
         setCancelText(mCancelText);
         setConfirmText(mConfirmText);
         setNeutralText(mNeutralText);
@@ -680,12 +681,13 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
      *
      * @param view
      */
-    public StylishAlertDialog setCustomView(View view) {
+    public StylishAlertDialog setCustomView(View view, boolean withContent) {
+        isWithContent = withContent;
         mCustomView = view;
         if (mCustomView != null && mCustomViewContainer != null) {
             mCustomViewContainer.addView(view);
             mCustomViewContainer.setVisibility(View.VISIBLE);
-            mContentTextView.setVisibility(View.GONE);
+            mContentTextView.setVisibility(withContent ? View.VISIBLE : View.GONE);
         }
         return this;
     }

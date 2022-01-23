@@ -32,7 +32,7 @@ Stylish Alert Dialogs for Android.
 		    <url>https://jitpack.io</url>
 		</repository>
 	</repositories>
-	
+
 	<dependency>
 	    <groupId>com.github.MarsadMaqsood</groupId>
 	    <artifactId>StylishDialogs</artifactId>
@@ -64,7 +64,7 @@ pDialog.setTitleText("Loading")
        .setCancellable(false)
        //.setCancelledOnTouchOutside(false)
        .show();
-       
+
 ```
 ---
 **Kotlin**
@@ -75,7 +75,7 @@ pDialog.setTitleText("Loading")
        .setCancellable(false)
        //.setCancelledOnTouchOutside(false)
        .show()
-	   
+
 ```
 
 
@@ -107,7 +107,7 @@ getButton(/*StylishAlertDialog.Button)Type*/)
 getButton(/*StylishAlertDialog.Button)Type*/).setBackgroundTintList()
 setCancellable(boolean cancellable)
 setCancelledOnTouchOutside(boolean cancelledOnTouchOutside)
-
+setCustomView(View view, boolean withContent)
 ```
 thanks to the project [materialish-progress](https://github.com/pnikosis/materialish-progress)
 
@@ -120,7 +120,7 @@ Simple basic message：
     new StylishAlertDialog(this)
             .setTitleText("Here's a message!")
             .show();
-```        
+```
 ___
 **Kotlin**
 ```kotlin
@@ -136,7 +136,7 @@ Title with a text under：
             .setTitleText("Here's a message!")
             .setContentText("It's pretty, isn't it?")
             .show();
-```        
+```
 ___
 **Kotlin**
    ```kotlin
@@ -161,7 +161,7 @@ Error message：
         .setTitleText("Oops...")
         .setContentText("Something went wrong!")
         .show()
-```        
+```
 
 Warning message：
 
@@ -208,7 +208,7 @@ Message with a custom icon：
             .setContentText("Here's a custom image.")
             .setCustomImage(R.drawable.custom_img)
             .show();
-``` 
+```
 ---
 **Kotlin**
 ```kotlin
@@ -292,7 +292,7 @@ Disable button
                     .changeAlertType(StylishAlertDialog.SUCCESS);
         }
     }).show();
-    
+
 ```
 ---
 **Kotlin**
@@ -347,7 +347,7 @@ Disable button
                     .changeAlertType(StylishAlertDialog.SUCCESS)
             }
             .show()
-```     
+```
 
 **Proguard-Rules**
 ```pro
@@ -360,7 +360,7 @@ Disable button
 ## License
 
     The MIT License (MIT)
-	
+
 	Copyright (c) 2021 Marsad Maqsood
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -369,10 +369,10 @@ Disable button
 	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 	copies of the Software, and to permit persons to whom the Software is
 	furnished to do so, subject to the following conditions:
-	
+
 	The above copyright notice and this permission notice shall be included in all
 	copies or substantial portions of the Software.
-	
+
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

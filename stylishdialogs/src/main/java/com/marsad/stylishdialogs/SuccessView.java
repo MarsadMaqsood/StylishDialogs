@@ -44,7 +44,7 @@ public class SuccessView extends View {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-//   todo: changed int to float
+        //   todo: changed int to float
         float totalW = getWidth();
         float totalH = getHeight();
         // rotate canvas first
