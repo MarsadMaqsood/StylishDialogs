@@ -44,7 +44,7 @@ public class SuccessView extends View {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        //   todo: changed int to float
+        //changed int to float
         float totalW = getWidth();
         float totalH = getHeight();
         // rotate canvas first
@@ -62,10 +62,10 @@ public class SuccessView extends View {
             leftRect.right = (totalW + CONST_LEFT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
             leftRect.left = leftRect.right - mLeftRectWidth;
         }
-        //todo; extracted common part from if
+        //extracted common part from if
         leftRect.top = (totalH + CONST_RIGHT_RECT_W) / 2;
         leftRect.bottom = leftRect.top + CONST_RECT_WEIGHT;
-        //todo: and else
+        //and else
         canvas.drawRoundRect(leftRect, CONST_RADIUS, CONST_RADIUS, mPaint);
 
         RectF rightRect = new RectF();
@@ -103,9 +103,8 @@ public class SuccessView extends View {
                     mLeftRectGrowMode = false;
                     mLeftRectWidth = mMaxLeftRectWidth * (1 - ((interpolatedTime - 0.7f) / 0.14f));
                     mLeftRectWidth = Math.max(mLeftRectWidth, MIN_LEFT_RECT_W);
-//   todo:changes//upper line with
-//    Math.max//
-//    mLeftRectWidth = mLeftRectWidth < MIN_LEFT_RECT_W ? MIN_LEFT_RECT_W : mLeftRectWidth;
+                    // changed upper line Math.max
+                    //  mLeftRectWidth = mLeftRectWidth < MIN_LEFT_RECT_W ? MIN_LEFT_RECT_W : mLeftRectWidth;
                     mRightRectWidth = MAX_RIGHT_RECT_W * ((interpolatedTime - 0.65f) / 0.19f);
                     invalidate();
                 } else if (0.84 < interpolatedTime && 1 >= interpolatedTime) { // restore left rect width, shorten right rect to const

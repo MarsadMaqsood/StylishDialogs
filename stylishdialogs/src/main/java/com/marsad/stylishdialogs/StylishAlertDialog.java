@@ -31,6 +31,7 @@ import com.pnikosis.materialishprogress.ProgressWheel;
 import java.util.List;
 
 public class StylishAlertDialog extends Dialog implements View.OnClickListener {
+
     public static final int NORMAL = 0;
     public static final int ERROR = 1;
     public static final int SUCCESS = 2;
@@ -42,17 +43,20 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     public final static int BUTTON_CANCEL = DialogInterface.BUTTON_NEGATIVE;
     public static boolean DARK_STYLE = false;
     private final float defStrokeWidth;
+    //Made final
+    private final AnimationSet mModalInAnim;
+    private final AnimationSet mModalOutAnim;
+    private final Animation mOverlayOutAnim;
+    private final Animation mErrorInAnim;
+    private final AnimationSet mErrorXInAnim;
+    private final AnimationSet mSuccessLayoutAnimSet;
+    private final Animation mSuccessBowAnim;
+    //
     boolean mCancelable = true;
     boolean mCanceledOnTouchOutside = true;
     boolean mDismissOnClick = false;
     private View mDialogView;
-    private AnimationSet mModalInAnim;
-    private AnimationSet mModalOutAnim;
-    private Animation mOverlayOutAnim;
-    private Animation mErrorInAnim;
-    private AnimationSet mErrorXInAnim;
-    private AnimationSet mSuccessLayoutAnimSet;
-    private Animation mSuccessBowAnim;
+
     private TextView mTitleTextView;
     private TextView mContentTextView;
     private FrameLayout mCustomViewContainer;
@@ -197,14 +201,18 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         mWarningFrame = findViewById(R.id.warning_frame);
         mButtonsContainer = findViewById(R.id.buttons_container);
         mConfirmButton = findViewById(R.id.confirm_button);
+
         mConfirmButton.setOnClickListener(this);
         mConfirmButton.setOnTouchListener(Constants.FOCUS_TOUCH_LISTENER);
+
         mCancelButton = findViewById(R.id.cancel_button);
         mCancelButton.setOnClickListener(this);
         mCancelButton.setOnTouchListener(Constants.FOCUS_TOUCH_LISTENER);
+
         mNeutralButton = findViewById(R.id.neutral_button);
         mNeutralButton.setOnClickListener(this);
         mNeutralButton.setOnTouchListener(Constants.FOCUS_TOUCH_LISTENER);
+
         mProgressHelper.setProgressWheel((ProgressWheel) findViewById(R.id.progressWheel));
 
         setTitleText(mTitleText);
@@ -221,7 +229,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         setNeutralButtonBackgroundColor(mNeutralButtonBackgroundColor);
         setNeutralButtonTextColor(mNeutralButtonTextColor);
         changeAlertType(mAlertType, true);
-        //todo:
+        //
         setCancelable(mCancelable);
         if (getCancellable())
             setCanceledOnTouchOutside(mCanceledOnTouchOutside);
@@ -327,6 +335,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     /**
      * setCancellable
      * This will prevent the dialog from dismissing
+     *
      * @param cancelable value in boolean default is true
      */
     public StylishAlertDialog setCancellable(boolean cancelable) {
@@ -337,6 +346,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     /**
      * setDismissOnClick
      * This will close the dialog when the button clicked
+     *
      * @param dismissOnClick in boolean default is false
      */
     public StylishAlertDialog setDismissOnClick(boolean dismissOnClick) {
@@ -351,6 +361,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     /**
      * setCancelledOnTouchOutside
      * This will prevent the dialog from dismissing when clicked outside the dialog
+     *
      * @param cancelledOnTouchOutside in boolean default is true
      */
     public StylishAlertDialog setCancelledOnTouchOutside(boolean cancelledOnTouchOutside) {
@@ -370,6 +381,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     /**
      * setTitleText
      * set title to dialog
+     *
      * @param text in String
      */
     public StylishAlertDialog setTitleText(String text) {

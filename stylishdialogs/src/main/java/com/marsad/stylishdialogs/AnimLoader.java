@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.Xml;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -23,9 +22,7 @@ public class AnimLoader {
     public static Animation loadAnimation(Context context, int id)
             throws Resources.NotFoundException {
 
-        XmlResourceParser parser = null;
-        try {
-            parser = context.getResources().getAnimation(id);
+        try (XmlResourceParser parser = context.getResources().getAnimation(id)) {
             return createAnimationFromXml(context, parser);
         } catch (XmlPullParserException ex) {
             Resources.NotFoundException rnf = new Resources.NotFoundException("Can't load animation resource ID #0x" +
@@ -37,9 +34,8 @@ public class AnimLoader {
                     Integer.toHexString(id));
             rnf.initCause(ex);
             throw rnf;
-        } finally {
-            if (parser != null) parser.close();
         }
+
     }
 
     private static Animation createAnimationFromXml(Context c, XmlPullParser parser)

@@ -12,7 +12,7 @@
         android:theme="@style/Theme.StylishDialogs"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".MainActivityKotlin"
+            android:name=".ExampleActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

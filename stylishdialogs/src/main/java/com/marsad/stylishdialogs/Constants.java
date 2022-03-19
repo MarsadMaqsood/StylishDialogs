@@ -1,5 +1,6 @@
 package com.marsad.stylishdialogs;
 
+import android.annotation.SuppressLint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
@@ -7,6 +8,7 @@ import android.view.View;
 
 public class Constants {
     public static final View.OnTouchListener FOCUS_TOUCH_LISTENER = new View.OnTouchListener() {
+        @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             Drawable drawable = v.getBackground();
