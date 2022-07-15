@@ -107,16 +107,12 @@ getButton(/*StylishAlertDialog.Button)Type*/)
 getButton(/*StylishAlertDialog.Button)Type*/).setBackgroundTintList()
 setCancellable(boolean cancellable)
 setCancelledOnTouchOutside(boolean cancelledOnTouchOutside)
-<<<<<<< HEAD
 setCustomView(View view, boolean withContent)
-=======
 setDismissOnClick(boolean dismissOnClick)
-
->>>>>>> 23dd967fa5b76fd9a240aa4e67c0572d1f54417f
 ```
-thanks to the project [materialish-progress](https://github.com/pnikosis/materialish-progress)
 
 Code Samples
+---
 
 Simple basic message：
 
