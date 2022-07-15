@@ -13,16 +13,16 @@ public class RotatingAnimation extends Animation {
     public static final int ROLL_BY_X = 0;
     public static final int ROLL_BY_Y = 1;
     public static final int ROLL_BY_Z = 2;
+    private final float mFromDegrees;
+    private final float mToDegrees;
+    private final int mRollType;
     private int mPivotXType = ABSOLUTE;
     private int mPivotYType = ABSOLUTE;
     private float mPivotXValue = 0.0f;
     private float mPivotYValue = 0.0f;
-    private float mFromDegrees;
-    private float mToDegrees;
     private float mPivotX;
     private float mPivotY;
     private Camera mCamera;
-    private int mRollType;
 
     public RotatingAnimation(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -81,24 +81,25 @@ public class RotatingAnimation extends Animation {
         Description d = new Description();
         if (value == null) {
             d.type = ABSOLUTE;
-            d.value = 0;
-        } else {
-            if (value.type == TypedValue.TYPE_FRACTION) {
-                d.type = (value.data & TypedValue.COMPLEX_UNIT_MASK) ==
-                        TypedValue.COMPLEX_UNIT_FRACTION_PARENT ?
-                        RELATIVE_TO_PARENT : RELATIVE_TO_SELF;
-                d.value = TypedValue.complexToFloat(value.data);
-                return d;
-            } else if (value.type == TypedValue.TYPE_FLOAT) {
-                d.type = ABSOLUTE;
-                d.value = value.getFloat();
-                return d;
-            } else if (value.type >= TypedValue.TYPE_FIRST_INT &&
-                    value.type <= TypedValue.TYPE_LAST_INT) {
-                d.type = ABSOLUTE;
-                d.value = value.data;
-                return d;
-            }
+            d.value = 0.0f;
+            return d;
+        }
+
+        if (value.type == TypedValue.TYPE_FRACTION) {
+            d.type = (value.data & TypedValue.COMPLEX_UNIT_MASK) ==
+                    TypedValue.COMPLEX_UNIT_FRACTION_PARENT ?
+                    RELATIVE_TO_PARENT : RELATIVE_TO_SELF;
+            d.value = TypedValue.complexToFloat(value.data);
+            return d;
+        } else if (value.type == TypedValue.TYPE_FLOAT) {
+            d.type = ABSOLUTE;
+            d.value = value.getFloat();
+            return d;
+        } else if (value.type >= TypedValue.TYPE_FIRST_INT &&
+                value.type <= TypedValue.TYPE_LAST_INT) {
+            d.type = ABSOLUTE;
+            d.value = value.data;
+            return d;
         }
 
         d.type = ABSOLUTE;

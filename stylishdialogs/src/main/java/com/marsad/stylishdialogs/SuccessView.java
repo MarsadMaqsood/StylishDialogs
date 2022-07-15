@@ -15,8 +15,8 @@ public class SuccessView extends View {
     private final float CONST_RECT_WEIGHT = dip2px(3);
     private final float CONST_LEFT_RECT_W = dip2px(15);
     private final float CONST_RIGHT_RECT_W = dip2px(25);
-    private final float MIN_LEFT_RECT_W = dip2px(3.3f);
     private final float MAX_RIGHT_RECT_W = CONST_RIGHT_RECT_W + dip2px(6.7f);
+    private final float MIN_LEFT_RECT_W = dip2px(3.3f);
     private Paint mPaint;
     private float mMaxLeftRectWidth;
     private float mLeftRectWidth;

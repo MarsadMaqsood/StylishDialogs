@@ -24,16 +24,13 @@ public class AnimLoader {
 
         try (XmlResourceParser parser = context.getResources().getAnimation(id)) {
             return createAnimationFromXml(context, parser);
-        } catch (XmlPullParserException ex) {
+        } catch (XmlPullParserException | IOException ex) {
+
             Resources.NotFoundException rnf = new Resources.NotFoundException("Can't load animation resource ID #0x" +
                     Integer.toHexString(id));
-            rnf.initCause(ex);
+            rnf.initCause(ex.getCause());
             throw rnf;
-        } catch (IOException ex) {
-            Resources.NotFoundException rnf = new Resources.NotFoundException("Can't load animation resource ID #0x" +
-                    Integer.toHexString(id));
-            rnf.initCause(ex);
-            throw rnf;
+
         }
 
     }

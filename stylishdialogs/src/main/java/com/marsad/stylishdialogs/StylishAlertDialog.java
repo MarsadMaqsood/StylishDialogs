@@ -8,14 +8,12 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.Transformation;
@@ -26,9 +24,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.pnikosis.materialishprogress.ProgressWheel;
+import androidx.core.content.res.ResourcesCompat;
 
-import java.util.List;
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 public class StylishAlertDialog extends Dialog implements View.OnClickListener {
 
@@ -42,7 +40,6 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     public final static int BUTTON_CONFIRM = DialogInterface.BUTTON_POSITIVE;
     public final static int BUTTON_CANCEL = DialogInterface.BUTTON_NEGATIVE;
     public static boolean DARK_STYLE = false;
-    private final float defStrokeWidth;
     //Made final
     private final AnimationSet mModalInAnim;
     private final AnimationSet mModalOutAnim;
@@ -51,12 +48,13 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private final AnimationSet mErrorXInAnim;
     private final AnimationSet mSuccessLayoutAnimSet;
     private final Animation mSuccessBowAnim;
+    private final PGHelper mProgressHelper;
+    private final float defStrokeWidth;
     //
     boolean mCancelable = true;
     boolean mCanceledOnTouchOutside = true;
     boolean mDismissOnClick = false;
     private View mDialogView;
-
     private TextView mTitleTextView;
     private TextView mContentTextView;
     private FrameLayout mCustomViewContainer;
@@ -89,7 +87,6 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private Integer mNeutralButtonTextColor;
     private Integer mCancelButtonBackgroundColor;
     private Integer mCancelButtonTextColor;
-    private PGHelper mProgressHelper;
     private FrameLayout mWarningFrame;
     private OnStylishClickListener mCancelClickListener;
     private OnStylishClickListener mConfirmClickListener;
@@ -97,7 +94,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     private boolean mCloseFromCancel;
     private boolean mHideKeyBoardOnDismiss = true;
     private int contentTextSize = 0;
-    private float strokeWidth = 0;
+    private float strokeWidth;
     private boolean isWithContent;
 
     public StylishAlertDialog(Context context) {
@@ -116,18 +113,18 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
         mErrorXInAnim = (AnimationSet) AnimLoader.loadAnimation(getContext(), R.anim.error_in);
         // 2.3.x system don't support alpha-animation on layer-list drawable
         // remove it from animation set
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
-            List<Animation> childAnim = mErrorXInAnim.getAnimations();
-            int idx = 0;
-            for (; idx < childAnim.size(); idx++) {
-                if (childAnim.get(idx) instanceof AlphaAnimation) {
-                    break;
-                }
-            }
-            if (idx < childAnim.size()) {
-                childAnim.remove(idx);
-            }
-        }
+///        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
+//            List<Animation> childAnim = mErrorXInAnim.getAnimations();
+//            int idx = 0;
+//            for (; idx < childAnim.size(); idx++) {
+//                if (childAnim.get(idx) instanceof AlphaAnimation) {
+//                    break;
+//                }
+//            }
+//            if (idx < childAnim.size()) {
+//                childAnim.remove(idx);
+//            }
+//        }
         mSuccessBowAnim = AnimLoader.loadAnimation(getContext(), R.anim.success_rotate);
         mSuccessLayoutAnimSet = (AnimationSet) AnimLoader.loadAnimation(getContext(), R.anim.success_layout_rotate);
         mModalInAnim = (AnimationSet) AnimLoader.loadAnimation(getContext(), R.anim.model_in);
@@ -411,7 +408,10 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
     }
 
     public StylishAlertDialog setCustomImage(int resourceId) {
-        return setCustomImage(getContext().getResources().getDrawable(resourceId));
+        /// return setCustomImage(getContext().getResources().getDrawable(resourceId));
+        //        return setCustomImage(ContextCompat.getDrawable(getContext(), resourceId));
+        return setCustomImage(ResourcesCompat.getDrawable(getContext().getResources(), resourceId, null));
+
     }
 
     public String getContentText() {
