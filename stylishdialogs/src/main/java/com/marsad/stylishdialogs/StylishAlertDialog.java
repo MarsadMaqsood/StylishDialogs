@@ -751,6 +751,8 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
                 dismissWithAnimation();
             }
         }
+
+        v.setOnClickListener(null);
     }
 
     public PGHelper getProgressHelper() {
