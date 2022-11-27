@@ -3,7 +3,6 @@ package com.marsad.stylishdialogs.example
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.marsad.stylishdialogs.StylishAlertDialog
@@ -14,40 +13,14 @@ class ExampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        Test
-        var i = 0;
-        val firebaseUser: String = "asca"
         findViewById<View>(R.id.simpleMsgDialog)
             .setOnClickListener {
-                val pDialog = StylishAlertDialog(this, StylishAlertDialog.NORMAL)
-                pDialog.setTitleText("The chat will be deleted also, are you sure?")
-                    .setCancellable(true)
-                    .setConfirmButton("okay") {
-                        it.dismissWithAnimation()
-//                        println("user id is: $firebaseUser")
-                        Log.d("User ID", firebaseUser)
-                        i++
-
-                    }
-                    .setCancelButton("Cancel") {
-                        it.dismissWithAnimation()
-                    }
-
+                StylishAlertDialog(this, StylishAlertDialog.NORMAL)
+                    .setContentText("Hey, You try me")
                     .show()
-
-                Handler().postDelayed({
-                    Log.e("Num == ", i.toString())
-                }, 5000)
             }
 
-//
 
-//        findViewById<View>(R.id.simpleMsgDialog)
-//            .setOnClickListener {
-//                StylishAlertDialog(this, StylishAlertDialog.NORMAL)
-//                    .setContentText("Hey, You try me")
-//                    .show()
-//            }
         findViewById<View>(R.id.titleWTextDialog)
             .setOnClickListener {
                 StylishAlertDialog(this, StylishAlertDialog.NORMAL)
