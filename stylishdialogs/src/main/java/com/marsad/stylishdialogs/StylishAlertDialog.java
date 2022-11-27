@@ -752,6 +752,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
             }
         }
 
+        //remove setOnClickListener
         v.setOnClickListener(null);
     }
 
