@@ -5,7 +5,7 @@ import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.StateListDrawable;
 import android.view.View;
 
-public class ViewUtils {
+public class DrawableUtils {
     static Drawable[] getDrawable(View view) {
         StateListDrawable drawable = (StateListDrawable) view.getBackground();
         DrawableContainer.DrawableContainerState dcs = (DrawableContainer.DrawableContainerState) drawable.getConstantState();

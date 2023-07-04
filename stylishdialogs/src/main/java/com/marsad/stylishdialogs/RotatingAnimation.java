@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Camera;
 import android.graphics.Matrix;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.animation.Animation;
@@ -32,15 +33,19 @@ public class RotatingAnimation extends Animation {
         mFromDegrees = a.getFloat(R.styleable.RotatingAnimation_fromDeg, 0.0f);
         mToDegrees = a.getFloat(R.styleable.RotatingAnimation_toDeg, 0.0f);
         mRollType = a.getInt(R.styleable.RotatingAnimation_rollType, ROLL_BY_X);
-        Description d = parseValue(a.peekValue(R.styleable.RotatingAnimation_customPivotX));
-        mPivotXType = d.type;
-        mPivotXValue = d.value;
+        mPivotXType = parsePivotType(a.peekValue(R.styleable.RotatingAnimation_customPivotX));
+        mPivotXValue = parsePivotValue(a.peekValue(R.styleable.RotatingAnimation_customPivotX));
 
-        d = parseValue(a.peekValue(R.styleable.RotatingAnimation_customPivotY));
-        mPivotYType = d.type;
-        mPivotYValue = d.value;
+        mPivotYType = parsePivotType(a.peekValue(R.styleable.RotatingAnimation_customPivotY));
+        mPivotYValue = parsePivotValue(a.peekValue(R.styleable.RotatingAnimation_customPivotY));
 
-        a.recycle();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            a.close();
+        } else {
+            a.recycle();
+        }
+
 
         initializePivotPoint();
     }
@@ -77,35 +82,29 @@ public class RotatingAnimation extends Animation {
         initializePivotPoint();
     }
 
-    Description parseValue(TypedValue value) {
-        Description d = new Description();
-        if (value == null) {
-            d.type = ABSOLUTE;
-            d.value = 0.0f;
-            return d;
-        }
+
+    private int parsePivotType(TypedValue value) {
+        if (value == null) return ABSOLUTE;
 
         if (value.type == TypedValue.TYPE_FRACTION) {
-            d.type = (value.data & TypedValue.COMPLEX_UNIT_MASK) ==
-                    TypedValue.COMPLEX_UNIT_FRACTION_PARENT ?
-                    RELATIVE_TO_PARENT : RELATIVE_TO_SELF;
-            d.value = TypedValue.complexToFloat(value.data);
-            return d;
+            return (value.data & TypedValue.COMPLEX_UNIT_MASK) == TypedValue.COMPLEX_UNIT_FRACTION_PARENT ? RELATIVE_TO_PARENT : RELATIVE_TO_SELF;
+        } else {
+            return ABSOLUTE;
+        }
+    }
+
+    private float parsePivotValue(TypedValue value) {
+        if (value == null) return 0.0f;
+
+        if (value.type == TypedValue.TYPE_FRACTION) {
+            return TypedValue.complexToFloat(value.data);
         } else if (value.type == TypedValue.TYPE_FLOAT) {
-            d.type = ABSOLUTE;
-            d.value = value.getFloat();
-            return d;
-        } else if (value.type >= TypedValue.TYPE_FIRST_INT &&
-                value.type <= TypedValue.TYPE_LAST_INT) {
-            d.type = ABSOLUTE;
-            d.value = value.data;
-            return d;
+            return value.getFloat();
+        } else if (value.type >= TypedValue.TYPE_FIRST_INT && value.type <= TypedValue.TYPE_LAST_INT) {
+            return value.data;
         }
 
-        d.type = ABSOLUTE;
-        d.value = 0.0f;
-
-        return d;
+        return 0.0f;
     }
 
     private void initializePivotPoint() {
@@ -151,8 +150,4 @@ public class RotatingAnimation extends Animation {
         matrix.postTranslate(mPivotX, mPivotY);
     }
 
-    protected static class Description {
-        public int type;
-        public float value;
-    }
 }

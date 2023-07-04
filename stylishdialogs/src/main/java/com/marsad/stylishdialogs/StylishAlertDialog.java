@@ -533,7 +533,7 @@ public class StylishAlertDialog extends Dialog implements View.OnClickListener {
 
     private void setButtonBackgroundColor(Button btn, Integer color) {
         if (btn != null && color != null) {
-            Drawable[] drawableItems = ViewUtils.getDrawable(btn);
+            Drawable[] drawableItems = DrawableUtils.getDrawable(btn);
             if (drawableItems != null) {
                 GradientDrawable gradientDrawableUnChecked = (GradientDrawable) drawableItems[1];
                 //solid color

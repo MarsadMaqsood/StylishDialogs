@@ -3,12 +3,15 @@ package com.marsad.stylishdialogs.example;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.animation.Animation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.marsad.stylishdialogs.AnimLoader;
 import com.marsad.stylishdialogs.StylishAlertDialog;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         findViewById(R.id.simpleMsgDialog)
                 .setOnClickListener(v ->
                         new StylishAlertDialog(this, StylishAlertDialog.NORMAL)
+
                                 .setContentText("Hey, You try me")
+
                                 .show()
                 );
 
