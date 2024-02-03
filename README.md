@@ -39,7 +39,7 @@ Stylish Alert Dialogs for Android.
 	    <version>0.1.+</version>
 	</dependency>
 
-**Gradle**
+**Gradle OLD**
 
 	allprojects {
 		repositories {
@@ -51,6 +51,21 @@ Stylish Alert Dialogs for Android.
 	dependencies {
 	        implementation 'com.github.MarsadMaqsood:StylishDialogs:0.1.+'
 	}
+
+ **Gradle NEW**
+
+	dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+ 	dependencies {
+	        implementation 'com.github.MarsadMaqsood:StylishDialogs:1.0.0'
+	}
+ 
 
 ## How to Usage
 
